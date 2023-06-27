@@ -54,14 +54,15 @@ app.get("/multilang", async (req, res) => {
   }
 
   async function makeSecondApiCall(text) {
+    const queryString = `You are a helpful assistant who helps with answering questions based on the provided information. If the information asked cannot be found in the text provided, you admit that I cant find the exact information. Always include application links for each scheme. Here is the question : ${text}`;
     console.log(
       "ENTERED INTO SECOND API CALL WHICH WILL SEND CONVERTED ENGLISH DATA TO JUGALBANDI"
     );
     await axios
       .get("http://4.240.112.55:8000/query-with-gptindex", {
         params: {
-          uuid_number: "effc6ca6-1181-11ee-9884-0242ac110002",
-          query_string: text,
+          uuid_number: "6df74548-140e-11ee-9884-0242ac110002",
+          query_string: queryString,
         },
         headers: {
           accept: "application/json",
